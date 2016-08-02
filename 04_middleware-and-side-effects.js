@@ -43,3 +43,33 @@ store.dispatch(actionsAndReducers.increment());
 store.dispatch(actionsAndReducers.decrementBy(3));
 // we can easily see what's happening to our application as it happens.
 // another use could be to trigger a side-effect.
+
+const request = require("superagent");
+
+const requestMiddleware = store => next => action => {
+
+  // if we trigger an increment, we'll grab a random number from an API and
+  // increment our store by 1 + the random number
+  if (action.type === "redux-talk/counter/INCREMENT") {
+
+    console.log("triggering request");
+    request
+      .get("https://qrng.anu.edu.au/API/jsonI.php?length=1&type=uint8")
+      .end((err, res) => {
+        const number = res.body.data[0];
+        store.dispatch(actionsAndReducers.incrementBy(number));
+      });
+  }
+
+  return next(action);
+};
+
+const store2 = redux.createStore(
+  actionsAndReducers.counterReducer, // exactly what we did in the last file
+  redux.applyMiddleware(loggerMiddleware, requestMiddleware)
+  // but this time passing the result of apply middleware
+);
+
+store2.dispatch(actionsAndReducers.increment());
+
+// this way, we can decouple actions and effects!

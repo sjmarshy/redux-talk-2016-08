@@ -130,7 +130,6 @@ counterReducer(
 counterReducer(counterState, incrementBy(10));
 
 // and we still haven't imported anything from redux yet...
-
 module.exports = {
   counterReducer,
   counterState,

@@ -47,7 +47,7 @@ store.subscribe(() => {
 store.dispatch(actionsAndReducers.decrementBy(10));
 store.dispatch(actionsAndReducers.increment());
 
-// hopefully, this all makes sense =)
+// And that covers the basics! Hopefully you can see how it all fits together!
 //
 // if there are any questions I can answer,
 // or if you just want to embarass me by making me do some live coding

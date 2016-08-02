@@ -17,8 +17,7 @@
  01. What is Redux?
 
  Redux is a state management paradigm. It's a single source of immutable truth,
- any changes are triggered by `Actions`, and any changes mean the replacement of
- the entire state tree.
+ any changes are triggered by `Actions`, indirectly.
 
  In this way, Redux is entirely compatible with functional programming. However,
  there's nothing that means it can't be used with other paradigms.

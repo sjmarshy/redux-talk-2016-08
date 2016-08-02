@@ -10,6 +10,7 @@
   "author": "Sam Marshall <sjmarshy@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "superagent": "^2.1.0"
   }
 }
